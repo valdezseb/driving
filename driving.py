@@ -112,7 +112,7 @@ def main():
     uploaded_file = st.file_uploader("Upload an Excel file", type=["xlsx", "xls"])
     if uploaded_file is not None:
         try:
-            df = pd.read_excel(uploaded_file, sheet_name=None)
+            df = pd.read_excel(uploaded_file, sheet_name=None, engine='openpyxl')
             sheet_names = list(df.keys())
             selected_sheet = st.selectbox("Select Sheet", sheet_names)
             df = df[selected_sheet]
